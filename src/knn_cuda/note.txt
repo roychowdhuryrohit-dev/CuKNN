@@ -1,0 +1,6 @@
+# make sure train-images-idx3-ubyte and train-labels-idx1-ubyte in the same directory
+# for serial and cuda ( also all others cuda optimizations )
+nvcc -O3 knn_cuda.cu -o knn_cuda
+
+# for cuda + openmp (openmp only for predictioin)
+nvcc -Xcompiler "-fopenmp -O3" knn_cuda.cu -o knn_cuda -lgomp
