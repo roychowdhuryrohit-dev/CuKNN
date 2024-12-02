@@ -46,7 +46,7 @@ class MnistDataloader(object):
         return (x_train, y_train),(x_test, y_test)        
 
 
-input_path = '/WAVE/users2/unix/klor/ycho_lab/kimsong_lor/csen_319/CuKNN/data/ubyte_data' # Change this your path
+input_path = 'ubyte_data' # Change this your path
 training_images_filepath = join(input_path, 'train-images-idx3-ubyte/train-images-idx3-ubyte')
 training_labels_filepath = join(input_path, 'train-labels-idx1-ubyte/train-labels-idx1-ubyte')
 test_images_filepath = join(input_path, 't10k-images-idx3-ubyte/t10k-images-idx3-ubyte')
@@ -70,7 +70,7 @@ def save_images_as_png(images, labels, save_dir):
         img_filename = os.path.join(label_dir, f"{i}.png")
         plt.imsave(img_filename, img, cmap='gray')
 
-save_dir = '/WAVE/users2/unix/klor/ycho_lab/kimsong_lor/csen_319/CuKNN/data/training_data'
+save_dir = 'training_data'
 save_images_as_png(x_train, y_train, save_dir)
-save_dir = '/WAVE/users2/unix/klor/ycho_lab/kimsong_lor/csen_319/CuKNN/data/testing_data'
+save_dir = 'testing_data'
 save_images_as_png(x_test, y_test, save_dir)
