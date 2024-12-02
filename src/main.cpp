@@ -74,9 +74,10 @@ int main(int argc, char* argv[]) {
 	std::cerr << "No images found in the directory: " << image_directory << std::endl;
 	return 1;
     }
-
+    std::cout<<"Image loaded"<<std::endl;
     // Use PCA on the images
     preprocess_images_with_pca(images, pca_ncomp);
+    std::cout<<"Image Preprocessed"<<std::endl;
 
     // Convert all images into JSON format save to a file
     json json_data;
@@ -87,9 +88,9 @@ int main(int argc, char* argv[]) {
     if (output_file_stream.is_open()) {
 	output_file_stream << json_data.dump(4);
 	output_file_stream.close();
-	// std::cout << "Image data saved to " << output_file << std::endl;
+	std::cout << "Image data saved to " << output_file << std::endl;
     } else {
-	// std::cerr << "Failed to open output file for writing: " << output_file << std::endl;
+	std::cerr << "Failed to open output file for writing: " << output_file << std::endl;
 	return 1;
     }
 

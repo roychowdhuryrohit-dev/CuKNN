@@ -72,12 +72,14 @@ std::vector<ImageData> load_images_from_directory(const std::string& directory) 
 
 
 void normalize_images(std::vector<std::vector<float>>& images) {
+
 #if defined(OMP)
 #pragma omp parallel for
 #endif
-    for (auto& image : images) {
-	for (auto& pixel : image) {
-	    pixel /= 255.0f;  // Normalize image data to [0, 1] range
+    for (size_t i = 0; i < images.size(); ++i) {  // Loop through each image
+	std::vector<float>& image = images[i];   // Reference to the current image
+	for (size_t j = 0; j < image.size(); ++j) {  // Loop through each pixel
+	    image[j] /= 255.0f;  // Normalize pixel to [0, 1] range
 	}
     }
 }

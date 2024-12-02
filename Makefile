@@ -21,7 +21,8 @@ LDFLAGS_SERIAL = -lstdc++fs
 
 # Source files and object files
 SRC_FILES = $(wildcard $(SRC_DIR)/*.cpp)
-OBJ_FILES = $(SRC_FILES:$(SRC_DIR)/%.cpp=$(BIN_DIR)/%.o)
+OBJ_FILES_OMP = $(SRC_FILES:$(SRC_DIR)/%.cpp=$(BIN_DIR)/omp_%.o)
+OBJ_FILES_SERIAL = $(SRC_FILES:$(SRC_DIR)/%.cpp=$(BIN_DIR)/serial_%.o)
 
 # Targets
 TARGET_OMP = $(BIN_DIR)/run_pca_omp
@@ -31,20 +32,20 @@ TARGET_SERIAL = $(BIN_DIR)/run_pca_serial
 all: $(TARGET_OMP) $(TARGET_SERIAL)
 
 # Rule to build the OpenMP binary
-$(TARGET_OMP): $(OBJ_FILES)
-	$(CXX) $(OBJ_FILES) -o $@ $(LDFLAGS_OMP)
+$(TARGET_OMP): $(OBJ_FILES_OMP)
+	$(CXX) $(OBJ_FILES_OMP) -o $@ $(LDFLAGS_OMP)
 
 # Rule to build the Serial binary
-$(TARGET_SERIAL): $(OBJ_FILES)
-	$(CXX) $(OBJ_FILES) -o $@ $(LDFLAGS_SERIAL)
+$(TARGET_SERIAL): $(OBJ_FILES_SERIAL)
+	$(CXX) $(OBJ_FILES_SERIAL) -o $@ $(LDFLAGS_SERIAL)
 
-# Rule to compile .cpp files to .o files (handles both OMP and Serial)
-$(BIN_DIR)/%.o: $(SRC_DIR)/%.cpp | $(BIN_DIR)
-ifeq ($(MAKECMDGOALS),$(TARGET_OMP))
+# Rule to compile .cpp files to .o files for OpenMP
+$(BIN_DIR)/omp_%.o: $(SRC_DIR)/%.cpp | $(BIN_DIR)
 	$(CXX) $(CXXFLAGS_OMP) -c $< -o $@
-else
+
+# Rule to compile .cpp files to .o files for Serial
+$(BIN_DIR)/serial_%.o: $(SRC_DIR)/%.cpp | $(BIN_DIR)
 	$(CXX) $(CXXFLAGS_SERIAL) -c $< -o $@
-endif
 
 # Ensure the bin directory exists
 $(BIN_DIR):
@@ -52,7 +53,7 @@ $(BIN_DIR):
 
 # Clean up object files and binaries
 clean:
-	rm -f $(OBJ_FILES) $(TARGET_OMP) $(TARGET_SERIAL)
+	rm -f $(OBJ_FILES_OMP) $(OBJ_FILES_SERIAL) $(TARGET_OMP) $(TARGET_SERIAL)
 
 # Phony targets
 .PHONY: all clean
