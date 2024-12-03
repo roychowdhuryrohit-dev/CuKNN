@@ -1,0 +1,87 @@
+Image folder = data/training_data
+Total no. of images = 60000
+No. of PCA components = 50
+Output file = data/training_data.json
+
+---Serial Implementation (w/o OMP)---
+Runtime (secs)= 84.32
+
+---Serial Implementation (w OMP)---
+Runtime (secs)= 73.55
+Scheduling Policy = static
+
+---Parallel Implementation (w OMP)---
+Runtime (secs)= 67.89
+No. of threads = 2
+Scheduling Policy = static
+
+---Parallel Implementation (w OMP)---
+Runtime (secs)= 69.7
+No. of threads = 2
+Scheduling Policy = dynamic
+
+---Parallel Implementation (w OMP)---
+Runtime (secs)= 71.35
+No. of threads = 2
+Scheduling Policy = guided
+
+---Parallel Implementation (w OMP)---
+Runtime (secs)= 64.77 
+No. of threads = 4
+Scheduling Policy = static
+
+---Parallel Implementation (w OMP)---
+Runtime (secs)= 64.52
+No. of threads = 4
+Scheduling Policy = dynamic
+
+---Parallel Implementation (w OMP)---
+Runtime (secs)= 64.1
+No. of threads = 4
+Scheduling Policy = guided
+
+---Parallel Implementation (w OMP)---
+Runtime (secs)= 68.4
+No. of threads = 8
+Scheduling Policy = static
+
+---Parallel Implementation (w OMP)---
+Runtime (secs)= 70.3
+No. of threads = 8
+Scheduling Policy = dynamic
+
+---Parallel Implementation (w OMP)---
+Runtime (secs)= 69.35
+No. of threads = 8
+Scheduling Policy = guided
+
+---Parallel Implementation (w OMP)---
+Runtime (secs)= 83.4
+No. of threads = 16
+Scheduling Policy = static
+
+---Parallel Implementation (w OMP)---
+Runtime (secs)= 83.2
+No. of threads = 16
+Scheduling Policy = dynamic
+
+---Parallel Implementation (w OMP)---
+Runtime (secs)= 83.13
+No. of threads = 16
+Scheduling Policy = guided
+
+---Parallel Implementation (w OMP)---
+Runtime (secs)= 116.27 
+No. of threads = 32
+Scheduling Policy = static
+
+---Parallel Implementation (w OMP)---
+Runtime (secs)= 116.55
+No. of threads = 32
+Scheduling Policy = dynamic
+
+---Parallel Implementation (w OMP)---
+Runtime (secs)= 115.75
+No. of threads = 32
+Scheduling Policy = guided
+
