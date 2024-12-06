@@ -1,0 +1,22 @@
+---Preprocessing Runtime vs. No. of components---
+Number of OMP threads = 4
+Number of images = 60000
+
+No. of components = 50
+Runtime = 66 secs
+
+No. of components = 100
+Runtime = 68.31 secs
+
+No. of components = 150
+Runtime = 69.08 secs
+
+No. of components = 200
+Runtime = 71.51 secs
+
+No. of components = 250
+Runtime = 72.52 secs
+
+No. of components = 500
+Runtime = 81.42 secs
+

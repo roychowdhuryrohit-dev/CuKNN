@@ -1,0 +1,28 @@
+---KNN MNIST Classification with PCA and 2D Blocks (16x16)---
+Training size = 60000
+Testing size = 10000
+
+---PCA-50---
+Runtime = 3.84 secs
+Accuracy = 23.44%
+
+---PCA-100---
+Runtime = 6.12 secs
+Accuracy = 26.18%
+
+---PCA-150---
+Runtime = 8.75 secs
+Accuracy = 26.81%
+
+---PCA-200---
+Runtime = 11.26 secs
+Accuracy = 27.31%
+
+---PCA-250---
+Runtime = 13.28 secs
+Accuracy = 27.76%
+
+---PCA-500---
+Runtime = 25.88 secs
+Accuracy = 28.12%
+
