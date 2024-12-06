@@ -55,7 +55,7 @@ bin/run_pca_omp data/testing_data 50 data/testing_data.json #testing set
 ### Training/Testing Steps
 
 ```sh
-#Run training/testing with PCA components
+# Run training/testing with PCA components
 bin/knn_cuda_pca data/training_data.json data/testing_data.json
 # Run training/testing with raw images
 bin/knn_cuda_cpu_openmp data/train-images.idx3-ubyte data/train-labels.idx1-ubyte 8 # OpenMP, number of threads = 8
