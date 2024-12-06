@@ -42,7 +42,6 @@ cd data && python3 generate_images.py
 
 ### Preprocessing Steps
 
-1. Initialize the JSON files for training and testing datasets:
 ```sh
 touch data/training_data.json data/testing_data.json
 # Serial implementation, PCA components = 50
@@ -55,18 +54,13 @@ bin/run_pca_omp data/testing_data 50 data/testing_data.json #testing set
 
 ### Training/Testing Steps
 
-1. Run the training/testing with PCA components:
 ```sh
+#Run training/testing with PCA components
 bin/knn_cuda_pca data/training_data.json data/testing_data.json
 # Run training/testing with raw images
-bin/knn_cuda_cpu_openmp data/train-images.idx3-ubyte
-data/train-labels.idx1-ubyte 8 # OpenMP, number of threads = 8
-bin/knn_cuda_cpu_serials data/train-images.idx3-ubyte
-data/train-labels.idx1-ubyte # Serial
-bin/knn_cuda_gpu_standard data/train-images.idx3-ubyte
-data/train-labels.idx1-ubyte # GPU, standard
-bin/knn_cuda_gpu_2dblock data/train-images.idx3-ubyte
-data/train-labels.idx1-ubyte # GPU, 2D block
-bin/knn_cuda_gpu_sharedmem data/train-images.idx3-ubyte
-data/train-labels.idx1-ubyte # GPU, shared memory
+bin/knn_cuda_cpu_openmp data/train-images.idx3-ubyte data/train-labels.idx1-ubyte 8 # OpenMP, number of threads = 8
+bin/knn_cuda_cpu_serials data/train-images.idx3-ubyte data/train-labels.idx1-ubyte # Serial
+bin/knn_cuda_gpu_standard data/train-images.idx3-ubyte data/train-labels.idx1-ubyte # GPU, standard
+bin/knn_cuda_gpu_2dblock data/train-images.idx3-ubyte data/train-labels.idx1-ubyte # GPU, 2D block
+bin/knn_cuda_gpu_sharedmem data/train-images.idx3-ubyte data/train-labels.idx1-ubyte # GPU, shared memory
 ```
